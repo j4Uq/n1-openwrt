@@ -36,7 +36,7 @@ downloadSpecificDir 'https://github.com/ophub/luci-app-amlogic.git' 'main' 'pack
 #Add openclash
 #svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/lean/luci-app-openclash
 #Add smartdns
-downloadSpecificDir 'https://github.com/o0HalfLife0o/openwrt-ipk.git' 'master' 'package/lean/smartdns'
+#downloadSpecificDir 'https://github.com/o0HalfLife0o/openwrt-ipk.git' 'master' 'package/lean/smartdns'
 #Add luci-app-smartdns
 #git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/lean/luci-app-smartdns
 #Add luci-app-adguardhome

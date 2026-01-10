@@ -223,7 +223,7 @@ CONFIG_PACKAGE_python3-yaml=y
 # CONFIG_PACKAGE_shadowsocks-libev-ss-redir is not set
 # CONFIG_PACKAGE_shadowsocks-libev-ss-server is not set
 # CONFIG_PACKAGE_shadowsocks-libev-ss-tunnel is not set
-CONFIG_PACKAGE_smartdns=y
+# CONFIG_PACKAGE_smartdns=y
 CONFIG_PACKAGE_tar=y
 CONFIG_PACKAGE_terminfo=y
 # CONFIG_PACKAGE_trojan is not set
