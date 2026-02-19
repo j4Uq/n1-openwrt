@@ -1,0 +1,27 @@
+name: Build ImmortalWrt for ACRH17
+
+on:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: true
+        default: false
+        type: boolean
+  workflow_call:
+    inputs:
+      ssh:
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  build:
+    uses: ./.github/workflows/build-openwrt.yml
+    with:
+      device: ACRH17
+      config_dir: ipq40xx/acrh17
+      diy_script: diy.sh
+      release_tag_prefix: OpenWrt_ACRH17
+      default_ip: 192.168.2.1
+      ssh: ${{ inputs.ssh }}
