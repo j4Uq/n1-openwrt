@@ -172,7 +172,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ inputs.release_tag_prefix }}_${{ env.FILE_DATE }}
-          files: ${{ steps.artifacts.outputs.path }}
+          files: ${{ steps.artifacts.outputs.path }}/*
+          fail_on_unmatched_files: true
           body: |
             首次使用建议全新刷写
             * 基本信息
