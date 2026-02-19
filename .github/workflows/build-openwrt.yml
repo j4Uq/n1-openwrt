@@ -179,7 +179,7 @@ jobs:
             * 基本信息
             IP: ${{ inputs.default_ip }}
             账户: root
-            密码: password
+            密码: password 或 无
 
       - name: Delete old releases for this device
         if: always()
