@@ -48,16 +48,19 @@ jobs:
             echo "should_build=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Trigger N1 build
+      - name: Trigger device builds
         if: steps.check.outputs.should_build == 'true'
         run: |
-          gh workflow run n1.yml -f ssh=false --ref ${{ github.ref_name }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Trigger ACRH17 build
-        if: steps.check.outputs.should_build == 'true'
-        run: |
-          gh workflow run acrh17.yml -f ssh=false --ref ${{ github.ref_name }}
+          set -e
+          echo "寻找设备工作流文件：.github/workflows/device_*.yml"
+          for workflow in .github/workflows/device_*.yml; do
+            if [ -f "$workflow" ]; then
+              workflow_name=$(basename "$workflow")
+              echo "触发工作流：$workflow_name"
+              gh workflow run "$workflow_name" -f ssh=false --ref "${{ github.ref_name }}"
+            else
+              echo "没有找到匹配的 device_*.yml 文件"
+            fi
+          done
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

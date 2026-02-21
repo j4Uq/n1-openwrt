@@ -151,7 +151,7 @@ jobs:
           # Remove packages directory
           rm -rf packages
           # Remove all files except factory and sysupgrade images
-          find . -mindepth 1 ! \( -name '*factory*' -o -name '*sysupgrade*' \) -exec rm -rf {} +
+          find . -mindepth 1 ! \( -name '*initramfs*' -name '*factory*' -o -name '*sysupgrade*' \) -exec rm -rf {} +
 
       # Determine artifact path for upload
       - name: Set artifact path
