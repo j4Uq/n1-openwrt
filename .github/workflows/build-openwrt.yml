@@ -216,7 +216,7 @@ jobs:
       DEVICE: ${{ inputs.device }}
     steps:
       - name: Update README.md via API
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const owner = context.repo.owner;
