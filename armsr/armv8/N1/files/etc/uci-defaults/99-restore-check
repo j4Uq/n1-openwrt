@@ -1,0 +1,17 @@
+#!/bin/sh
+
+MNT_DIR="/mnt/mmcblk2p4"
+RESTORE_SCRIPT="$MNT_DIR/backup/restore.sh"
+timeout=20
+while [ "$timeout" -gt 0 ]; do
+	if [ -d "$MNT_DIR" ] && [ -n "$(ls -A "$MNT_DIR")" ]; then
+		if [ -f "$RESTORE_SCRIPT" ]; then
+			"$RESTORE_SCRIPT"
+			exit 0
+		fi
+		break
+	fi
+	sleep 1
+	timeout=$((timeout - 1))
+done
+exit 0
