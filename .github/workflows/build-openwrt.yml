@@ -174,7 +174,7 @@ jobs:
 
       - name: Upload firmware to release
         id: create_release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ inputs.release_tag_prefix }}_${{ env.FILE_DATE }}
           files: ${{ steps.artifacts.outputs.path }}/*.*
